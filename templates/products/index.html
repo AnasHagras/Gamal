@@ -1,0 +1,28 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/newStatic.css' %}">
+    <link rel="stylesheet" href="{% static 'newStyle.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <span><a href="{% url 'products/about'%}">About</a></span>
+    <h1> Welcome To Products </h1>
+    {% for product in products %}
+        <h4>{{product.name}}</h4>
+        <h4>{{product.content}}</h4>
+        <h4>{{product.price}}</h4>
+        <img src="{{ product.image.url }}" alt="Fuck Me">
+        {% if product.active %}
+            <h4>Product is active</h4>
+        {% else %}
+            <h4>Product is not active</h4>
+        {% endif %}
+    {% endfor %}
+    <img src="{{ media.IMG_20190909_151608.jpg }}" alt="NO">
+</body>
+</html>
